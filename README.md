@@ -8,3 +8,7 @@ Repository of what I end up googling for again and again...
 ### Labels
 #### Remove labels
 `+ guides(color = "none")`
+### Scales
+#### Log gradient scale
+`+ scale_fill_gradient(trans = "log")`
+
