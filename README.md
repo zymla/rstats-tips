@@ -12,3 +12,7 @@ Repository of what I end up googling for again and again...
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
 
+# Package(s) for MS office interaction
+[David Gohel's `officer`](https://davidgohel.github.io/officer/)
+
+
