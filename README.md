@@ -11,6 +11,9 @@ Repository of what I end up googling for again and again...
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
+### Aesthetics
+Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
+
 
 # Package(s) for MS office interaction
 [David Gohel's `officer`](https://davidgohel.github.io/officer/)
