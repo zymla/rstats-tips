@@ -19,3 +19,6 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 [David Gohel's `officer`](https://davidgohel.github.io/officer/)
 
 
+# TODO
+## `purrrlyr::by_row()`
+Check it out
