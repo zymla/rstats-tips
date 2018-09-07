@@ -14,6 +14,10 @@ Repository of what I end up googling for again and again...
 ### Aesthetics
 Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
 
+# Office
+## Copy table to excel via clipboard
+`%>% write.table("clipboard", sep="\t")`
+
 # Watch out!
 ## `%>%` and `.`
 `tibble %>% full_join(. %>% filter(), . %>% filter())` doesn't work.
