@@ -12,6 +12,8 @@ Repository of what I end up googling for again and again...
 ### Labels
 #### Remove labels
 `+ guides(color = "none")`
+#### Rotate labeles
+`+ theme(axis.text.x = element_text(angle = 90)`
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
