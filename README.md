@@ -1,6 +1,10 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
 
+## readr
+### Clean column names
+`rename_all(funs(str_replace(., '^[^.]*\\.', '')))`
+
 ## GGplot2
 ### Vectors
 #### Get a vector out of a tibble column
