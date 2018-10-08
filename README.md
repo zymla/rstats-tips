@@ -5,6 +5,17 @@ Repository of what I end up googling for again and again...
 ### Clean column names
 `rename_all(funs(str_replace(., '^[^.]*\\.', '')))`
 
+## data.table
+### Read large CSV files faster than with readr
+```
+data.table::fread(
+    file = 'data_raw/huge_csv_file.csv', 
+    na.strings = c('', 'null', 'Null', 'NULL', '1980-01-01')
+    ) %>% 
+  as.tibble() %>% 
+  mutate(date_col = ymd(date_col))
+```
+
 ## GGplot2
 ### Vectors
 #### Get a vector out of a tibble column
