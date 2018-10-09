@@ -10,7 +10,7 @@ Repository of what I end up googling for again and again...
 ```
 data.table::fread(
     file = 'data_raw/huge_csv_file.csv', 
-    na.strings = c('', 'null', 'Null', 'NULL', '1980-01-01')
+    na.strings = c('', 'null', 'Null', 'NULL', '1980-01-01', '1980-01-01 00:00:00.0')
     ) %>% 
   as.tibble() %>% 
   mutate(date_col = ymd(date_col))
