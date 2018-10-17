@@ -13,6 +13,7 @@ data.table::fread(
     na.strings = c('', 'null', 'Null', 'NULL', '1980-01-01', '1980-01-01 00:00:00.0')
     ) %>% 
   as.tibble() %>% 
+  rename_all(funs(str_replace(., '^[^.]*\\.', ''))) %>% 
   mutate(date_col = ymd(date_col))
 ```
 
