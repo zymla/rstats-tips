@@ -16,6 +16,12 @@ data.table::fread(
   rename_all(funs(str_replace(., '^[^.]*\\.', ''))) %>% 
   mutate(date_col = ymd(date_col))
 ```
+### general format
+```
+dt[rows, cols, by]
+dt[,.(col1, col2)]
+dt[col1 > 0, .(col1, prod = col1 * col2)]
+```
 
 ## GGplot2
 ### Vectors
