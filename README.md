@@ -23,6 +23,10 @@ dt[,.(col1, col2)]
 dt[col1 > 0, .(col1, prod = col1 * col2)]
 ```
 
+```
+?`[.data.table`
+```
+
 ## GGplot2
 ### Vectors
 #### Get a vector out of a tibble column
