@@ -23,6 +23,12 @@ dt[,.(col1, col2)]
 dt[col1 > 0, .(col1, prod = col1 * col2)]
 ```
 
+### spread / pivot & index within group
+```
+dcast(flights[, as.list(lm(air_time ~ distance)[c('coefficients', 'df.residual')]), by = .(month)][,.(coefficients, df.residual, .I-.I[1]), by = .(month)], month + df.residual ~ V3, value.var="coefficients")
+```
+
+### help
 ```
 ?`[.data.table`
 ```
