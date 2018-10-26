@@ -2,6 +2,14 @@
 Repository of what I end up googling for again and again...
 
 ## sparklyr
+### Start
+```
+spark_install(version = "2.1.0")
+sc <- spark_connect(master = "local", version = "2.1.0")
+flights_df <- copy_to(sc, nycflights13::flights, "flights_sp", overwrite = TRUE)
+airlines <- copy_to(sc, airlines, "airlines")
+src_tbls(sc)
+```
 ### remove NAs
 `drop_na()` isn't available. Instead, use
 ```
