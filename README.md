@@ -1,6 +1,14 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
 
+## sparklyr
+### remove NAs
+`drop_na()` isn't available. Instead, use
+```
+flights %>% na.omit()
+```
+
+
 ## readr
 ### Clean column names
 `rename_all(funs(str_replace(., '^[^.]*\\.', '')))`
