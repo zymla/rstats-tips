@@ -5,6 +5,12 @@ Repository of what I end up googling for again and again...
 ```
 rstudioapi::askForPassword("")
 ```
+
+```
+aesc <- digest::AES(charToRaw(stringr::str_sub(digest::sha1(uuid::UUIDgenerate(use.time = TRUE)), 1, 32)), mode = 'ECB')
+aesc$decrypt(aesc$encrypt((function(x, n) (x[1:n]=x[1:n]))(charToRaw(rstudioapi::askForPassword()), 256)))
+```
+
 ## sparklyr
 ### Start
 ```
