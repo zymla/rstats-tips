@@ -11,6 +11,19 @@ aesc <- digest::AES(charToRaw(stringr::str_sub(digest::sha1(uuid::UUIDgenerate(u
 aesc$decrypt(aesc$encrypt((function(x, n) (x[1:n]=x[1:n]))(charToRaw(rstudioapi::askForPassword()), 256)))
 ```
 
+## RJDBC
+### Create driver for Hive
+```
+jdbc_jar_path <- "./hive/jdbc/hive-jdbc-xxxx-standalone.jar" 
+drv <- JDBC("org.apache.hive.jdbc.HiveDriver", classPath=jdbc_jar_path)
+```
+### Create connection
+```conn <- dbConnect(drv, glue('jdbc:hive2://xxx.xxx.xx:pppp/{default_hive_db};ssl=true;sslTrustStore={trust_store_path};trustStorePassword={trust_store_pwd};transportMode=http;httpPath=gateway/default/llap'), user, aesc$decrypt(skrt))
+```
+### Query directly from R notebook
+`{sql, connection = conn, output.var="query_result"}`
+### Clsoe connection
+
 ## sparklyr
 ### Start
 ```
