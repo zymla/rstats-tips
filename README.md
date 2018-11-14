@@ -74,6 +74,18 @@ dcast(flights[, as.list(lm(air_time ~ distance)[c('coefficients', 'df.residual')
 ```
 ?`[.data.table`
 ```
+## `reticulate` (Python)
+### Create Python dictionaries/tuples
+```
+key <- 'some_key'
+d <- reticulate::dict()
+d[key] <- reticulate::dict(key1 = 'value1', key2 = reticulate::tuple('foo', 2 ))
+d
+```
+outputs:
+```
+{'some_key': {'key1': 'value1', 'key2': ('foo', 2.0)}}
+```
 
 ## GGplot2
 ### Vectors
