@@ -82,10 +82,7 @@ d <- reticulate::dict()
 d[key] <- reticulate::dict(key1 = 'value1', key2 = reticulate::tuple('foo', 2 ))
 d
 ```
-outputs:
-```
-{'some_key': {'key1': 'value1', 'key2': ('foo', 2.0)}}
-```
+outputs: `{'some_key': {'key1': 'value1', 'key2': ('foo', 2.0)}}`
 
 ## GGplot2
 ### Vectors
