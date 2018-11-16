@@ -10,7 +10,6 @@ rstudioapi::askForPassword("")
 aesc <- digest::AES(charToRaw(stringr::str_sub(digest::sha1(uuid::UUIDgenerate(use.time = TRUE)), 1, 32)), mode = 'ECB')
 aesc$decrypt(aesc$encrypt((function(x, n) (x[1:n]=x[1:n]))(charToRaw(rstudioapi::askForPassword()), 256)))
 ```
-
 ## RJDBC
 ### Create driver for Hive
 ```
@@ -83,6 +82,18 @@ d[key] <- reticulate::dict(key1 = 'value1', key2 = reticulate::tuple('foo', 2 ))
 d
 ```
 outputs: `{'some_key': {'key1': 'value1', 'key2': ('foo', 2.0)}}`
+
+## Docker
+### Launch a docker container from R
+```
+client <- docker$from_env()
+data_folder_path = normalizePath('local_path', winslash = '/')
+vols <- reticulate::dict()
+vols[data_folder_path] <- reticulate::dict(bind = '/path_in_container/', mode = 'ro')
+ports <- reticulate::dict('5432/tcp' = reticulate::tuple('127.0.0.1', as.integer(5432)))
+pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, ports = ports, volumes = vols, detach = TRUE)
+```
+
 
 ## GGplot2
 ### Vectors
