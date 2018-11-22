@@ -94,11 +94,12 @@ ports <- reticulate::dict('5432/tcp' = reticulate::tuple('127.0.0.1', as.integer
 pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, ports = ports, volumes = vols, detach = TRUE)
 ```
 
-
-## GGplot2
+## Tidyverser
 ### Vectors
 #### Get a vector out of a tibble column
 `pull(data, col_name)`
+
+## GGplot2
 ### Labels
 #### Remove labels
 `+ guides(color = "none")`
