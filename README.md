@@ -91,7 +91,7 @@ data_folder_path = normalizePath('local_path', winslash = '/')
 vols <- reticulate::dict()
 vols[data_folder_path] <- reticulate::dict(bind = '/path_in_container/', mode = 'ro')
 ports <- reticulate::dict('5432/tcp' = reticulate::tuple('127.0.0.1', as.integer(5432)))
-pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, ports = ports, volumes = vols, detach = TRUE)
+pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, environment = reiculate::dict('foo' = 'bar'), ports = ports, volumes = vols, detach = TRUE)
 ```
 
 ## Tidyverser
