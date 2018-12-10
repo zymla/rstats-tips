@@ -4,6 +4,8 @@ Repository of what I end up googling for again and again...
 
 # Summaries
 ```
+dplyr::glimpse(df)
+dplyr::tbl_sum(df)
 skimr::skim(df)
 Hmisc::describe(df)
 summarytools::descr(spam)
