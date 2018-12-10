@@ -6,6 +6,8 @@ Repository of what I end up googling for again and again...
 ```
 skimr::skim(df)
 Hmisc::describe(df)
+summarytools::descr(spam)
+summarytools::dfSummary(df)
 ```
 
 
