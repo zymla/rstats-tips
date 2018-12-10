@@ -1,6 +1,14 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
 
+
+# Summaries
+```
+skimr::skim(df)
+Hmisc::describe(df)
+```
+
+
 ## Passwords
 ```
 rstudioapi::askForPassword("")
