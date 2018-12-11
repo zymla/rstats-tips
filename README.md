@@ -135,6 +135,24 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 ```
 scale(x, center = TRUE, scale = TRUE)
 ```
+### Transpose matrix
+```
+t(x)
+```
+### matrix multiplication
+```
+x %*% y
+```
+
+### Eigen vectors/values
+```
+eigen(x)
+```
+### PCA
+```
+scale(decm)[,] %*% (eigen(t(scale(decm)) %*% scale(decm)))$vectors
+```
+
 ## Clustering
 ### Viz
 ```
