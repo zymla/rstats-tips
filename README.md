@@ -32,8 +32,11 @@ drv <- JDBC("org.apache.hive.jdbc.HiveDriver", classPath=jdbc_jar_path)
 ```
 conn <- dbConnect(drv, glue('jdbc:hive2://xxx.xxx.xx:pppp/{default_hive_db};ssl=true;sslTrustStore={trust_store_path};trustStorePassword={trust_store_pwd};transportMode=http;httpPath=gateway/default/llap'), user, aesc$decrypt(skrt))
 ```
+
 ### Query directly from R notebook
-`{sql, connection = conn, output.var="query_result"}`
+```
+{sql, connection = conn, output.var="query_result"}
+```
 ### Close connection
 ```
 dbDisconnect(conn)
