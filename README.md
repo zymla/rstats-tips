@@ -126,6 +126,13 @@ pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, 
 ### Aesthetics
 Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
 
+# ML
+## Data prep
+### Center/normalize matrix
+```
+scale(x, center = TRUE, scale = TRUE)
+```
+
 # Office
 ## Copy table to excel via clipboard
 `%>% write.table("clipboard", sep="\t")`
