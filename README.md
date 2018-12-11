@@ -132,6 +132,11 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 ```
 scale(x, center = TRUE, scale = TRUE)
 ```
+## Clustering
+### Viz
+```
+factoextra::fviz_cluster(kmeans(Xs, 5, algorithm = 'MacQueen'), data = Xs, labelsize = 0)
+```
 
 # Office
 ## Copy table to excel via clipboard
