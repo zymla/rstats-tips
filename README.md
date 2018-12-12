@@ -10,7 +10,11 @@ Hmisc::describe(df)
 summarytools::descr(spam)
 summarytools::dfSummary(df)
 ```
-
+# Misc
+By default, `1` in a float. To create an in, the syntax is
+```
+1L
+```
 
 # Tidyverse
 ## readr
@@ -35,12 +39,26 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 
 
 # `data.table`
-### help
+## help
 ```
 ?`[.data.table`
 ```
-## data.table
-### Read large CSV files faster than with readr
+
+## List all `data.table`s
+```
+tables()
+```
+
+## Creator
+```
+dt <- 
+  data.table(
+    x = runif(100),
+    y = rnorm(100),
+    g = sample.int(100, n = 2, replace = TRUE)
+  )
+```
+## Read large CSV files faster than with readr
 ```
 data.table::fread(
     file = 'data_raw/huge_csv_file.csv', 
@@ -50,19 +68,95 @@ data.table::fread(
   rename_all(funs(str_replace(., '^[^.]*\\.', ''))) %>% 
   mutate(date_col = ymd(date_col))
 ```
-### general format
+## general format
 ```
 dt[rows, cols, by]
 dt[,.(col1, col2)]
 dt[col1 > 0, .(col1, prod = col1 * col2)]
 ```
 
-### spread / pivot & index within group
+## Operations on rows
+### Order/arrange
+To reorder inplace
+```
+setorder(dt, col_name)
+```
+To reorder without modifying the original data.table
+```
+dt[order(col_name)] 
+```
+
+### Intermediary computations
+Works with `=`, but not with `:=`
+```
+dt[,
+  {
+    a <- x ^ 2
+    b <- y ^ 2
+    z <- a + b
+    t <- a - b
+    .(z = z, t = t)
+  }
+  ]
+```
+## Operations on columns
+### Select (get as data.table)
+```
+dt[, .(y)]
+dt[, "y"]
+dt[, c("y")]
+dt[, 2]
+```
+```
+dt[, .(x, y)]
+dt[, c("x", y")]
+dt[, 1:2]
+```
+
+### Pull (get one column as vector)
+```
+dt[, y]
+```
+
+### Remove column
+```
+dt[, y := NULL]
+```
+
+### Work on multiple columns `.SD`
+`.SD` is by default a list with all columns except grouping columns
+```
+dt[, lapply(data.table(.SD), mean), g]
+```
+One can also customize `.SD` by setting `.SDcols`
+```
+dt[, lapply(data.table(.SD), mean), g, .SDcols = -c("y")]
+```
+
+## Shift/lag
+```
+dt[, .(y = shift(x, type = "lag", fill = NA, n = 2L)), by = g]
+```
+
+## Aggregation
+### Functions
+#### tally `.N`
+```
+dt[, .(.N), g]
+```
+
+## spread / pivot & index within group
 ```
 dcast(
   flights[, as.list(lm(air_time ~ distance)[c('coefficients', 'df.residual')]), by = .(month)][,.(coefficients, df.residual, .I-.I[1]), by = .(month)], 
   month + df.residual ~ V3, 
   value.var="coefficients")
+```
+
+## Options
+### Limit number of printed rows
+```
+options(datatable.print.nrows = 20)
 ```
 
 
