@@ -43,6 +43,10 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 ```
 ?`[.data.table`
 ```
+For help on `.N`, `.SD`, `.SDcols`
+```
+?`special-symbols`
+```
 
 ## List all `data.table`s
 ```
@@ -99,6 +103,21 @@ dt[,
   }
   ]
 ```
+Can call function with side effects as well, e.g. `hist()`
+```
+res[, {hist(Result)}]
+```
+If invalid output/last value, then set the last value to `NULL`
+```
+res[,
+  {
+    hist(Result)
+    NULL
+  }, 
+  Round
+]
+```
+
 ## Operations on columns
 ### Select (get as data.table)
 ```
