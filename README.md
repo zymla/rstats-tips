@@ -1,7 +1,6 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
 
-
 # Summaries
 ```
 dplyr::glimpse(df)
@@ -13,54 +12,33 @@ summarytools::dfSummary(df)
 ```
 
 
-## Passwords
-```
-rstudioapi::askForPassword("")
-```
-
-```
-aesc <- digest::AES(charToRaw(stringr::str_sub(digest::sha1(uuid::UUIDgenerate(use.time = TRUE)), 1, 32)), mode = 'ECB')
-aesc$decrypt(aesc$encrypt((function(x, n) (x[1:n]=x[1:n]))(charToRaw(rstudioapi::askForPassword()), 256)))
-```
-## RJDBC
-### Create driver for Hive
-```
-jdbc_jar_path <- "./hive/jdbc/hive-jdbc-xxxx-standalone.jar" 
-drv <- JDBC("org.apache.hive.jdbc.HiveDriver", classPath=jdbc_jar_path)
-```
-### Create connection
-```
-conn <- dbConnect(drv, glue('jdbc:hive2://xxx.xxx.xx:pppp/{default_hive_db};ssl=true;sslTrustStore={trust_store_path};trustStorePassword={trust_store_pwd};transportMode=http;httpPath=gateway/default/llap'), user, aesc$decrypt(skrt))
-```
-
-### Query directly from R notebook
-```
-{sql, connection = conn, output.var="query_result"}
-```
-### Close connection
-```
-dbDisconnect(conn)
-```
-## sparklyr
-### Start
-```
-spark_install(version = "2.1.0")
-sc <- spark_connect(master = "local", version = "2.1.0")
-flights_df <- copy_to(sc, nycflights13::flights, "flights_sp", overwrite = TRUE)
-airlines <- copy_to(sc, airlines, "airlines")
-src_tbls(sc)
-```
-### remove NAs
-`drop_na()` isn't available. Instead, use
-```
-flights %>% na.omit()
-```
-
-
+# Tidyverse
 ## readr
 ### Clean column names
 `rename_all(funs(str_replace(., '^[^.]*\\.', '')))`
 
+## Vectors
+### Get a vector out of a tibble column
+`pull(data, col_name)`
+
+## GGplot2
+### Labels
+#### Remove labels
+`+ guides(color = "none")`
+#### Rotate labeles
+`+ theme(axis.text.x = element_text(angle = 90)`
+### Scales
+#### Log gradient scale
+`+ scale_fill_gradient(trans = "log")`
+### Aesthetics
+Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
+
+
+# `data.table`
+### help
+```
+?`[.data.table`
+```
 ## data.table
 ### Read large CSV files faster than with readr
 ```
@@ -87,10 +65,9 @@ dcast(
   value.var="coefficients")
 ```
 
-### help
-```
-?`[.data.table`
-```
+
+
+# Interaction with othe environents
 ## `reticulate` (Python)
 ### Create Python dictionaries/tuples
 ```
@@ -112,22 +89,50 @@ ports <- reticulate::dict('5432/tcp' = reticulate::tuple('127.0.0.1', as.integer
 pg <- client$containers$run(name = 'pg', image = "image:latest", remove = TRUE, environment = reiculate::dict('foo' = 'bar'), ports = ports, volumes = vols, detach = TRUE)
 ```
 
-## Tidyverser
-### Vectors
-#### Get a vector out of a tibble column
-`pull(data, col_name)`
+## Databases / Big Data
+### Passwords
+```
+rstudioapi::askForPassword("")
+```
+```
+aesc <- digest::AES(charToRaw(stringr::str_sub(digest::sha1(uuid::UUIDgenerate(use.time = TRUE)), 1, 32)), mode = 'ECB')
+aesc$decrypt(aesc$encrypt((function(x, n) (x[1:n]=x[1:n]))(charToRaw(rstudioapi::askForPassword()), 256)))
+```
 
-## GGplot2
-### Labels
-#### Remove labels
-`+ guides(color = "none")`
-#### Rotate labeles
-`+ theme(axis.text.x = element_text(angle = 90)`
-### Scales
-#### Log gradient scale
-`+ scale_fill_gradient(trans = "log")`
-### Aesthetics
-Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
+### RJDBC
+#### Create driver for Hive
+```
+jdbc_jar_path <- "./hive/jdbc/hive-jdbc-xxxx-standalone.jar" 
+drv <- JDBC("org.apache.hive.jdbc.HiveDriver", classPath=jdbc_jar_path)
+```
+#### Create connection
+```
+conn <- dbConnect(drv, glue('jdbc:hive2://xxx.xxx.xx:pppp/{default_hive_db};ssl=true;sslTrustStore={trust_store_path};trustStorePassword={trust_store_pwd};transportMode=http;httpPath=gateway/default/llap'), user, aesc$decrypt(skrt))
+```
+
+#### Query directly from R notebook
+```
+{sql, connection = conn, output.var="query_result"}
+```
+#### Close connection
+```
+dbDisconnect(conn)
+```
+### sparklyr
+#### Start
+```
+spark_install(version = "2.1.0")
+sc <- spark_connect(master = "local", version = "2.1.0")
+flights_df <- copy_to(sc, nycflights13::flights, "flights_sp", overwrite = TRUE)
+airlines <- copy_to(sc, airlines, "airlines")
+src_tbls(sc)
+```
+#### remove NAs
+`drop_na()` isn't available. Instead, use
+```
+flights %>% na.omit()
+```
+
 
 # ML
 ## Data prep
