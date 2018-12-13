@@ -277,6 +277,13 @@ scale(decm)[,] %*% (eigen(t(scale(decm)) %*% scale(decm)))$vectors
 factoextra::fviz_cluster(kmeans(Xs, 5, algorithm = 'MacQueen'), data = Xs, labelsize = 0)
 ```
 
+# Shiny
+## JS logs to R console
+```
+shinyjs::showLog()
+```
+
+
 # Office
 ## Copy table to excel via clipboard
 `%>% write.table("clipboard", sep="\t")`
