@@ -27,8 +27,8 @@ reticulate::py_config()
 
 ## Hellow world
 ```
-use_condaenv('r-tensorflow')
 library(tensorflow)
+#use_condaenv('r-tensorflow')
 h = tf$constant("Hello")
 w = tf$constant(" World!")
 hw = h + w
