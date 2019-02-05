@@ -1,6 +1,46 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
 
+# Tensorflow/Keras
+## To install with conda
+```
+install.packages("tensorflow")
+install_tensorflow()
+```
+
+## If issue with numpy version arises:
+Then I had issues with numy version, so:
+```
+conda remove -n r-tensorflow numpy
+```
+Then instal numpy 1.14.5
+```
+conda install -n r-tensorflow numpy=1.14.5
+```
+
+## Always set which python to use just after restarting R session. On a Mac:
+```
+library(reticulate)
+reticulate::use_python('/Users/XXXXX/anaconda3/envs/r-tensorflow/bin/python', required = TRUE)
+reticulate::py_config()
+```
+
+## Hellow world
+```
+use_condaenv('r-tensorflow')
+library(tensorflow)
+h = tf$constant("Hello")
+w = tf$constant(" World!")
+hw = h + w
+
+init <- tf$global_variables_initializer()
+session <- tf$Session()
+session$run(init)
+
+ans <- session$run(hw)
+ans
+```
+
 # Summaries
 ```
 dplyr::glimpse(df)
