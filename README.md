@@ -340,3 +340,6 @@ But `tibble %>% full_join(filter(.), filter(.))` does. Not clear why yet :(
 # TODO
 ## `purrrlyr::by_row()`
 Check it out
+
+# Related files
+[https://holtzy.github.io/Pimp-my-rmd/]
