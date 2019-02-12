@@ -79,6 +79,16 @@ Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x
 
 
 # `data.table`
+## Chain/Pipe
+### Bracket style
+```
+dt[a > 1, .(b = a + 1)][b < 3]
+```
+### `magrittr` style
+```
+dt[a > 1, .(b = a + 1)] %>% .[b < 3]
+```
+
 ## help
 ```
 ?`[.data.table`
