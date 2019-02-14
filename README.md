@@ -332,7 +332,10 @@ factoextra::fviz_cluster(kmeans(Xs, 5, algorithm = 'MacQueen'), data = Xs, label
 ```
 shinyjs::showLog()
 ```
-
+## Assign to a global variable that will persist in RStudio after the Shiny app is closed (facilitates debugging)
+```
+global_var <<- 1
+```
 
 # Office
 ## Copy table to excel via clipboard
