@@ -222,6 +222,30 @@ dcast(
   value.var="coefficients")
 ```
 
+## Joins
+```
+DT[X, on="x"]                         # right join
+X[DT, on="x"]                         # left join
+DT[X, on="x", nomatch=0]              # inner join
+DT[!X, on="x"]                        # not join
+DT[X, on=c(y="v")]                    # join using column "y" of DT with column "v" of X
+DT[X, on="y==v"]                      # same as above (v1.9.8+)
+
+DT[X, on=.(y<=foo)]                   # NEW non-equi join (v1.9.8+)
+DT[X, on="y<=foo"]                    # same as above
+DT[X, on=c("y<=foo")]                 # same as above
+DT[X, on=.(y>=foo)]                   # NEW non-equi join (v1.9.8+)
+DT[X, on=.(x, y<=foo)]                # NEW non-equi join (v1.9.8+)
+DT[X, .(x,y,x.y,v), on=.(x, y>=foo)]  # Select x's join columns as well
+
+DT[X, on="x", mult="first"]           # first row of each group
+DT[X, on="x", mult="last"]            # last row of each group
+DT[X, sum(v), by=.EACHI, on="x"]      # join and eval j for each row in i
+DT[X, sum(v)*foo, by=.EACHI, on="x"]  # join inherited scope
+DT[X, sum(v)*i.v, by=.EACHI, on="x"]  # 'i,v' refers to X's v column
+DT[X, on=.(x, v>=v), sum(y)*foo, by=.EACHI] # NEW non-equi join with by=.EACHI (v1.9.8+)
+```
+
 ## Options
 ### Limit number of printed rows
 ```
