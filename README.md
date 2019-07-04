@@ -25,7 +25,7 @@ reticulate::use_python('/Users/XXXXX/anaconda3/envs/r-tensorflow/bin/python', re
 reticulate::py_config()
 ```
 
-## Hellow world
+## Hello world
 ```
 library(tensorflow)
 #use_condaenv('r-tensorflow')
