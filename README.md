@@ -129,6 +129,11 @@ dt[,.(col1, col2)]
 dt[col1 > 0, .(col1, prod = col1 * col2)]
 ```
 
+## Replace all `NA`s
+```
+dt[is.na(dt)] <- 0
+```
+
 ## Operations on rows
 ### Order/arrange
 To reorder inplace
