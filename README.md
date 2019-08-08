@@ -51,7 +51,7 @@ summarytools::descr(spam)
 summarytools::dfSummary(df)
 ```
 # Misc
-By default, `1` in a float. To create an int, the syntax is
+By default, `1` is a float. To create an int, the syntax is
 ```
 1L
 ```
