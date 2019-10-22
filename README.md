@@ -1,6 +1,10 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
-
+# JupyterLab
+To resize `ggplot` outputs in the notebook:
+```
+options(repr.plot.width=11, repr.plot.height=7)
+```
 # Tensorflow/Keras
 ## To install with conda
 ```
