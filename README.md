@@ -5,6 +5,9 @@ To resize `ggplot` outputs in the notebook:
 ```
 options(repr.plot.width=11, repr.plot.height=7)
 ```
+```
+%%R -w 15 -h 15 --units in
+```
 # Tensorflow/Keras
 ## To install with conda
 ```
