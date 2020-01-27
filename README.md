@@ -68,6 +68,10 @@ By default, `1` is a float. To create an int, the syntax is
 ### Clean column names
 `rename_all(funs(str_replace(., '^[^.]*\\.', '')))`
 
+## `dplyr`
+### Remove duplicates
+`distinct()`
+
 ## Vectors
 ### Get a vector out of a tibble column
 `pull(data, col_name)`
