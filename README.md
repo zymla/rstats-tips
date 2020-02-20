@@ -1,5 +1,11 @@
 # rstats-tips
 Repository of what I end up googling for again and again...
+# Ouput
+```
+options(max.print=100)
+options(tibble.print_max=100)
+```
+
 # JupyterLab
 To resize `ggplot` outputs in the notebook:
 ```
