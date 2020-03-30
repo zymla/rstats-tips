@@ -91,6 +91,7 @@ By default, `1` is a float. To create an int, the syntax is
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
+`+ scale_x_date(date_breaks = "months" , date_labels = "%b-%y")`
 ### Aesthetics
 Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
 
