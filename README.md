@@ -86,8 +86,11 @@ By default, `1` is a float. To create an int, the syntax is
 ### Labels
 #### Remove labels
 `+ guides(color = "none")`
-#### Rotate labeles
+#### Rotate labels
 `+ theme(axis.text.x = element_text(angle = 90)`
+### Legend
+#### Remove legend
+`+ theme(legend.position = "none")`
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
