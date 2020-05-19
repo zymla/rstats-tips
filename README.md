@@ -91,6 +91,8 @@ By default, `1` is a float. To create an int, the syntax is
 ### Legend
 #### Remove legend
 `+ theme(legend.position = "none")`
+### Expand limits (e.g. to origin)
+`+ expand_limits(x = 0)`
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
