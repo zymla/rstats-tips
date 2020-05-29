@@ -82,6 +82,16 @@ By default, `1` is a float. To create an int, the syntax is
 ### Get a vector out of a tibble column
 `pull(data, col_name)`
 
+## Timeseries `tsibble`
+```
+library(tsibble)
+df %>%
+  as_tsibble(index='dt_utc') %>%
+  fill_gaps(km = 0, nb_cars = 0) %>% 
+  mutate(dt_tzfr=if_else(is.na(dt_tzfr), with_tz(dt_utc, 'Europe/Paris'), dt_tzfr)) %>%
+  as_tibble()
+```
+
 ## GGplot2
 ### Labels
 #### Remove labels
