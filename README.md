@@ -91,6 +91,8 @@ By default, `1` is a float. To create an int, the syntax is
 ### Legend
 #### Remove legend
 `+ theme(legend.position = "none")`
+### Theme
+`+ theme(plot.caption=element_text(size=8, family='sans', face='italic', color='gray')`
 ### Expand limits (e.g. to origin)
 `+ expand_limits(x = 0)`
 ### Scales
