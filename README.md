@@ -93,6 +93,7 @@ df %>%
 ```
 
 ## GGplot2
+A good ref [[http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/]]
 ### Labels
 #### Remove labels
 `+ guides(color = "none")`
