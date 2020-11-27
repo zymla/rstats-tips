@@ -99,6 +99,8 @@ A good ref [[http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot
 `+ guides(color = "none")`
 #### Rotate labels
 `+ theme(axis.text.x = element_text(angle = 90)`
+or the more modern:
+`scale_x_datetime(breaks = 'week', date_labels = "%b %d", guide = guide_axis(angle = 90))`
 ### Legend
 #### Remove legend
 `+ theme(legend.position = "none")`
