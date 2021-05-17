@@ -110,6 +110,8 @@ or the more modern:
 `+ theme(plot.caption=element_text(size=8, family='sans', face='italic', color='gray')`
 ### Expand limits (e.g. to origin)
 `+ expand_limits(x = 0)`
+### `xlim` but with clipping
+`+coord_cartesian(xlim=c(0, 10))`
 ### Scales
 #### Log gradient scale
 `+ scale_fill_gradient(trans = "log")`
