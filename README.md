@@ -120,7 +120,13 @@ or the more modern:
 `+ scale_y_log10(minor_breaks=seq(1e2:3e7) %>% round(., -floor(log10(.))) %>% unique())`
 ### Aesthetics
 Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
-
+### geofacet
+#### Install issues
+```
+sudo apt-get install libudunits2-dev
+sudo apt-get install gdal-bin
+sudo apt-get install libgdal-dev
+```
 
 # `data.table`
 ## Chain/Pipe
