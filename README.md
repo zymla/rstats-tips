@@ -117,7 +117,7 @@ or the more modern:
 `+ scale_fill_gradient(trans = "log")`
 `+ scale_x_date(date_breaks = "months" , date_labels = "%b-%y")`
 #### Log Breaks
-`+ scale_y_log10(minor_breaks=seq(1e2:3e7) %>% round(., -floor(log10(.))) %>% unique())`
+`+ scale_y_log10(minor_breaks=seq(5e-2, 3e7, 1e-2) %>% round(., -floor(log10(.))) %>% unique())`
 ### Aesthetics
 Variables, within `aes(color = var_color)`, constant, outside: `geom_point(aes(x, y), color = "red")`
 ### geofacet
