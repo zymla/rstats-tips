@@ -434,4 +434,4 @@ But `tibble %>% full_join(filter(.), filter(.))` does. Not clear why yet :(
 Check it out
 
 # Related files
-[https://holtzy.github.io/Pimp-my-rmd/]
+https://holtzy.github.io/Pimp-my-rmd/
