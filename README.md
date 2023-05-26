@@ -5,7 +5,6 @@ Repository of what I end up googling for again and again...
 options(max.print=100)
 options(tibble.print_max=100)
 ```
-
 # JupyterLab
 To resize `ggplot` outputs in the notebook:
 ```
@@ -20,7 +19,6 @@ options(repr.plot.width=11, repr.plot.height=7)
 install.packages("tensorflow")
 install_tensorflow()
 ```
-
 ## If issue with numpy version arises:
 Then I had issues with numy version, so:
 ```
@@ -37,7 +35,6 @@ library(reticulate)
 reticulate::use_python('/Users/XXXXX/anaconda3/envs/r-tensorflow/bin/python', required = TRUE)
 reticulate::py_config()
 ```
-
 ## Hello world
 ```
 library(tensorflow)
