@@ -60,6 +60,7 @@ Hmisc::describe(df)
 summarytools::descr(spam)
 summarytools::dfSummary(df)
 ```
+
 # Misc
 By default, `1` is a float. To create an int, the syntax is
 ```
