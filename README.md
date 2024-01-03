@@ -6,6 +6,13 @@ options(max.print=100)
 options(tibble.print_max=100)
 ```
 # JupyterLab
+## Install
+### Install `R` on Debian
+```
+sudo apt install r-base r-base-dev
+```
+
+## Misc
 To resize `ggplot` outputs in the notebook:
 ```
 options(repr.plot.width=11, repr.plot.height=7)
