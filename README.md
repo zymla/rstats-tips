@@ -12,6 +12,13 @@ options(tibble.print_max=100)
 sudo apt install r-base r-base-dev
 ```
 
+### On GCP Vertex AI needed the following
+#### `tidyverse`
+```
+sudo apt install libssl-dev
+sudo apt install libfontconfig1-dev
+```
+
 ## Misc
 To resize `ggplot` outputs in the notebook:
 ```
