@@ -18,6 +18,7 @@ sudo apt install r-base r-base-dev
 sudo apt install libssl-dev
 sudo apt install libfontconfig1-dev
 sudo apt install libharfbuzz-dev libfribidi-dev
+sudo apt install libtiff-dev
 ```
 
 ## Misc
