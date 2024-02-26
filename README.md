@@ -5,6 +5,15 @@ Repository of what I end up googling for again and again...
 options(max.print=100)
 options(tibble.print_max=100)
 ```
+# Install old versions of R on Docker
+```
+apt install software-properties-common
+add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+```
+
+Check available R versions:
+```apt policy r-base```
+
 # JupyterLab
 ## Install
 ### Install `R` on Debian
