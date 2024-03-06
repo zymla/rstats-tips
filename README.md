@@ -14,6 +14,33 @@ add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_relea
 Check available R versions:
 ```apt policy r-base```
 
+
+# GoogleCloudStorage
+## With service-account JSON
+```
+library(googleCloudStorageR)
+library(googleAuthR)
+
+scope <-c("https://www.googleapis.com/auth/cloud-platform")
+gar_auth_service(Sys.getenv("GCS_AUTH_FILE"), scope = scope)
+
+gcs_list_objects("MY-PROJECT")
+```
+
+## On a GCP VM or container
+```
+library(googleCloudStorageR)
+library(gargle)
+
+scope <-c("https://www.googleapis.com/auth/cloud-platform")
+token <- token_fetch(scopes = scope)
+gcs_auth(token = token)
+
+gcs_list_objects("MY-PROJECT")
+```
+
+
+
 # JupyterLab
 ## Install
 ### Install `R` on Debian
